@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import "./App.css";
 
 export default class AddMessage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      inputMessage: ""
+    };
+  }
   isDisabled = () => {
-    return false;
+    return this.state.inputMessage === "";
   };
   render() {
     return (
@@ -15,9 +21,7 @@ export default class AddMessage extends Component {
             placeholder="Enter your message..."
           />
           <div className="input-group-append">
-            <button className="btn submit-button" disabled={this.isDisabled()}>
-              SEND
-            </button>
+            <button disabled={this.isDisabled()}>SEND</button>
           </div>
         </form>
       </div>
