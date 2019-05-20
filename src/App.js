@@ -9,10 +9,6 @@ class App extends Component {
     this.users = [{ username: "Amy" }, { username: "John" }];
   }
 
-  isDisabled = () => {
-    return false;
-  };
-
   render() {
     return (
       <div className="App">

@@ -5,7 +5,7 @@ export default class MessageList extends Component {
   render() {
     return (
       <ul className="message-list">
-        {messages.map((message, index) => (
+        {this.props.messages.map((message, index) => (
           <li
             key={index}
             className={
