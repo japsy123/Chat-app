@@ -7,10 +7,20 @@ export default class AddMessage extends Component {
     this.state = {
       inputMessage: ""
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
+
+  handleSubmit() {}
   isDisabled = () => {
     return this.state.inputMessage === "";
   };
+
+  handleChange(e) {
+    this.setState({
+      inputMessage: e.target.value
+    });
+  }
   render() {
     return (
       <div>
@@ -19,9 +29,13 @@ export default class AddMessage extends Component {
             type="text"
             className="form-control"
             placeholder="Enter your message..."
+            onChange={this.handleChange}
+            value={this.state.inputMessage}
           />
           <div className="input-group-append">
-            <button disabled={this.isDisabled()}>SEND</button>
+            <button onSubmit={this.handleSubmit} disabled={this.isDisabled()}>
+              SEND
+            </button>
           </div>
         </form>
       </div>
