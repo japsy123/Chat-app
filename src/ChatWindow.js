@@ -14,6 +14,12 @@ export default class ChatWindow extends Component {
       ]
     };
   }
+
+  pushMessage(user) {
+    this.setState(() => ({
+      messages: [...this.state.messages, user]
+    }));
+  }
   render() {
     return (
       <div className="container">
@@ -25,7 +31,10 @@ export default class ChatWindow extends Component {
             users={this.props.users}
           />
 
-          <AddMessage />
+          <AddMessage
+            pushMessage={this.pushMessage}
+            username={this.props.users[0].username}
+          />
         </div>
 
         <div className="chat-window">
@@ -36,7 +45,10 @@ export default class ChatWindow extends Component {
             users={this.props.users}
           />
 
-          <AddMessage />
+          <AddMessage
+            pushMessage={this.pushMessage}
+            username={this.props.users[1].username}
+          />
         </div>
       </div>
     );

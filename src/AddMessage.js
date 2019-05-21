@@ -11,7 +11,13 @@ export default class AddMessage extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {}
+  handleSubmit(e) {
+    e.preventDefault();
+
+    console.log(this.props.username);
+
+    // Push the message and username in a function
+  }
   isDisabled = () => {
     return this.state.inputMessage === "";
   };
@@ -31,9 +37,10 @@ export default class AddMessage extends Component {
             placeholder="Enter your message..."
             onChange={this.handleChange}
             value={this.state.inputMessage}
+            username={this.props.username}
           />
           <div className="input-group-append">
-            <button onSubmit={this.handleSubmit} disabled={this.isDisabled()}>
+            <button onClick={this.handleSubmit} disabled={this.isDisabled()}>
               SEND
             </button>
           </div>
