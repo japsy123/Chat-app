@@ -19,7 +19,9 @@ export default class AddMessage extends Component {
     user.text = this.state.inputMessage;
     console.log(user);
     this.props.pushMessage(user);
-    // Push the message and username in a function
+    this.setState({
+      inputMessage: ""
+    });
   }
   isDisabled = () => {
     return this.state.inputMessage === "";
