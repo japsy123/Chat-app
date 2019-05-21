@@ -13,6 +13,7 @@ export default class ChatWindow extends Component {
         { username: "John", text: "Hi, Amy! Good, you?" }
       ]
     };
+    this.pushMessage = this.pushMessage.bind(this);
   }
 
   pushMessage(user) {
